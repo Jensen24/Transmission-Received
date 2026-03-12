@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 @onready var Neck := $Neck
 @onready var camera := $Neck/Camera3D
-@onready var AnimPlayer = $AnimationPlayer
 
 const SPEED = 4.0
 const JUMP_VELOCITY = 2.0
