@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfdxa0rc7m307"]
+[gd_scene load_steps=5 format=3 uid="uid://cfdxa0rc7m307"]
+
+[ext_resource type="PackedScene" uid="uid://d2j73b2cyrkv0" path="res://Assets/Ladder.glb" id="1_688p1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yh8r4"]
 albedo_color = Color(0, 1, 0, 1)
@@ -21,3 +23,6 @@ shape = SubResource("BoxShape3D_yh8r4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.99710006, -0.014516737, 0.07470426, 0.014131746, 0.999884, 0.005679581, -0.07477804, -0.0046074083, 0.9971896, 0.086996734, 0.99870664, 4.539073)
+
+[node name="Ladder" parent="." instance=ExtResource("1_688p1")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -5.706, 0.3, 7.668)
