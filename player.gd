@@ -16,7 +16,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (Neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -28,7 +27,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
