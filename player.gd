@@ -1,19 +1,30 @@
 extends CharacterBody3D
 
+const SPEED = 4.0
+const JUMP = 2.0
+var ladder_array = []
+
 @onready var Neck := $Neck
 @onready var camera := $Neck/Camera3D
 
-const SPEED = 4.0
-const JUMP_VELOCITY = 2.0
+enum State{
+	NORMAL,
+	LADDER
+}
+var current_state = State.NORMAL
+func _ready() -> void:
+	# Set Mouse Invisible
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	if current_state == State.LADDER:
+		direction = 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -26,7 +37,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-	
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
