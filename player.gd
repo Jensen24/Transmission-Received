@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 4.0
-const JUMP = 2.0
+const SPEED = 2.5
 var ladder_array = []
 
 @onready var Neck := $Neck
@@ -21,10 +20,12 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	if current_state == State.LADDER:
-		direction = 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP
+		velocity = Vector3.ZERO
+		var input_climb := Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward")
+		# Y axis movement
+		velocity.y = input_climb * SPEED  
+		move_and_slide()
+		return
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")

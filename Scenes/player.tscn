@@ -16,7 +16,7 @@ mesh = SubResource("CapsuleMesh_sh265")
 shape = SubResource("CapsuleShape3D_4flbx")
 
 [node name="Neck" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55512714, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555127, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Neck"]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.006440347, 0.0040768385, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.00644035, 0.00407684, 0)

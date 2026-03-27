@@ -3,6 +3,8 @@ extends Node
 @onready var pause_menu: Control = $HUD/PauseMenu
 var paused = false
 
+func _ready() -> void:
+	pause_menu.hide()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
@@ -11,9 +13,9 @@ func _process(delta: float) -> void:
 func pauseMenu():
 	if paused:
 		pause_menu.hide()
-		Engine.time_scale = 1
+		get_tree().paused = false
 	else:
 		pause_menu.show()
-		Engine.time_scale = 0
+		get_tree().paused = true
 		
 	paused = !paused
