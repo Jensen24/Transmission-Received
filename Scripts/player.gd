@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 2.5
+const SPEED = 5.5
 var ladder_array = []
 
 @onready var Neck := $Neck
