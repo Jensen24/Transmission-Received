@@ -27,5 +27,7 @@ mesh = SubResource("PlaneMesh_oltiy")
 shape = SubResource("ConcavePolygonShape3D_02qk3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(3.20687, -0.294181, 0.965267, 0, 1.71127, 1.0028, -1.42799, -0.660649, 2.16772, 0, 5.92142, -0.956689)
+transform = Transform3D(0.9135243, -0.15834859, 0.3746986, -0.32844302, -0.830572, 0.44975027, 0.23999684, -0.53392494, -0.81075627, -9.711344, 6.068118, -13.024141)
 directional_shadow_max_distance = 253.2
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
