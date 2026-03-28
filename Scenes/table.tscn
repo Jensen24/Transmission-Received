@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyyjaqwhmsasp"]
+
+[ext_resource type="PackedScene" uid="uid://b5ttlnv2ciuf3" path="res://Assets/LPTable.glb" id="1_ix8et"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4ppvu"]
+data = PackedVector3Array(-1.1207, 0.114199996, 0.6864, 1.1207, 0.114199996, -0.6864, 1.1207, 0.114199996, 0.6864, 1.1207, 0.114199996, -0.6864, 1.2053, 0, 0.77099997, 1.1207, 0.114199996, 0.6864, 1.1207, 0.114199996, 0.6864, 1.2053, 0, 0.77099997, -1.2053, 0, 0.77099997, 1.1207, 0.114199996, 0.6864, -1.2053, 0, 0.77099997, -1.1207, 0.114199996, 0.6864, 1.1207, 0.114199996, -0.6864, 1.2053, 0, -0.77099997, 1.2053, 0, 0.77099997, -1.1207, 0.114199996, 0.6864, -1.2053, 0, 0.77099997, -1.2053, 0, -0.77099997, -1.1207, 0.114199996, -0.6864, 1.2053, 0, -0.77099997, 1.1207, 0.114199996, -0.6864, -1.1207, 0.114199996, 0.6864, -1.1207, 0.114199996, -0.6864, 1.1207, 0.114199996, -0.6864, -1.1207, 0.114199996, -0.6864, -1.2053, 0, -0.77099997, 1.2053, 0, -0.77099997, -1.1207, 0.114199996, 0.6864, -1.2053, 0, -0.77099997, -1.1207, 0.114199996, -0.6864)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r4jc3"]
+size = Vector3(2.6903229, 1.5542965, 1.704483)
+
+[node name="LPTable" instance=ExtResource("1_ix8et")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_4ppvu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15243939, 0.7813978, 0.25797457)
+shape = SubResource("BoxShape3D_r4jc3")
