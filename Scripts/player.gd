@@ -3,6 +3,8 @@ extends CharacterBody3D
 const SPEED = 5.5
 var ladder_array = []
 
+@onready var ray = $Neck/Camera3D/RayCast3D
+@onready var reticle = $CenterContainer/reticle
 @onready var Neck := $Neck
 @onready var camera := $Neck/Camera3D
 
@@ -16,6 +18,16 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
+	if ray.is_colliding():
+		var obj = ray.get_collider()
+		
+		if obj.is_in_group("pickup"):
+			enlarge_reticle()
+		else:
+			reset_reticle()
+	else:
+		reset_reticle()
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 

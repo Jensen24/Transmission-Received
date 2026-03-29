@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6gvyi84gmi88"]
+
+[ext_resource type="Texture2D" uid="uid://5n2404ya2vbu" path="res://Assets/reticle.png" id="1_h7tv5"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 17279.998
+offset_bottom = 9719.999
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="reticle" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_h7tv5")
+stretch_mode = 4
