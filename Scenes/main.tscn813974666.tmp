@@ -16,7 +16,7 @@ script = ExtResource("1_8gbba")
 
 [node name="Ground" parent="World" instance=ExtResource("1_bo1nx")]
 
-[node name="player" parent="World" groups=["player"] instance=ExtResource("2_8gbba")]
+[node name="player" parent="World" instance=ExtResource("2_8gbba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04987, 2.5644667)
 
 [node name="Ladder" parent="World" instance=ExtResource("4_kry3j")]
@@ -26,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.842571, -2)
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 5, 0, -1)
 
 [node name="Key" parent="World" instance=ExtResource("6_344ge")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.5695314, 1.107699, 0.14210683)
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.5695314, 1.107699, -0.7283419)
 
 [node name="HUD" type="Control" parent="."]
 process_mode = 2

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cruucoxhmsmt6" path="res://Scenes/reticle_layer.gd" id="1_ipe3u"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_ipe3u")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

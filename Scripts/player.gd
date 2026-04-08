@@ -3,8 +3,6 @@ extends CharacterBody3D
 const SPEED = 5.5
 var ladder_array = []
 
-#@onready var ray = $Neck/Camera3D/RayCast3D
-#@onready var reticle = $CenterContainer/reticle
 @onready var Neck := $Neck
 @onready var camera := $Neck/Camera3D
 

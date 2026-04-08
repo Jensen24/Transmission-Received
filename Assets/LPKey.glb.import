@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/LPKey.glb-74a084555bbc5469f32492b433f76d6a.sc
 
 [params]
 
-nodes/root_type="Area3D"
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
