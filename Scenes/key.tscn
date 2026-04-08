@@ -1,15 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj3r1y0fy57j4"]
+[gd_scene load_steps=4 format=3 uid="uid://cj3r1y0fy57j4"]
 
 [ext_resource type="PackedScene" uid="uid://dpgma0j1n1pgv" path="res://Assets/LPKey.glb" id="1_ut0wq"]
 [ext_resource type="Script" uid="uid://cbhei2et552jy" path="res://Scripts/key.gd" id="2_udxw8"]
-[ext_resource type="PackedScene" uid="uid://do8vnn8r7wxt1" path="res://Scenes/keyInspect.tscn" id="3_brn0f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brn0f"]
 size = Vector3(2.4819336, 0.5838623, 5.497986)
 
 [node name="Key" groups=["Pickups"] instance=ExtResource("1_ut0wq")]
 script = ExtResource("2_udxw8")
-inspect_object = ExtResource("3_brn0f")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
 

@@ -2,7 +2,10 @@ extends CharacterBody3D
 
 const SPEED = 5.5
 var ladder_array = []
+var is_hovering := false
 
+@onready var reticle := $CanvasLayer/CenterContainer/Reticle
+@onready var ray := $Neck/Camera3D/RayCast3D
 @onready var Neck := $Neck
 @onready var camera := $Neck/Camera3D
 
@@ -14,6 +17,7 @@ var current_state = State.NORMAL
 func _ready() -> void:
 	# Set Mouse Invisible
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	reticle.visible = false
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -26,6 +30,25 @@ func _physics_process(delta: float) -> void:
 		velocity.y = input_climb * SPEED  
 		move_and_slide()
 		return
+		
+	if ray.is_colliding():
+		var obj = ray.get_collider()
+		
+		while obj and not obj.is_in_group("Pickups"):
+			obj = obj.get_parent()
+		
+		if obj:
+			if !is_hovering:
+				is_hovering = true
+				reveal_reticle()
+		else:
+			if is_hovering:
+				is_hovering = false
+				hide_reticle()
+	else:
+		if is_hovering:
+			is_hovering = false
+			hide_reticle()
 
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -50,3 +73,9 @@ func _input(event: InputEvent) -> void:
 			Neck.rotate_y(-event.relative.x * 0.005)
 			camera.rotate_x(-event.relative.y * 0.005)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
+
+func reveal_reticle():
+	reticle.visible = true
+
+func hide_reticle():
+	reticle.visible = false
