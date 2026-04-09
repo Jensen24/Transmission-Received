@@ -6,6 +6,8 @@
 # Animation Sources:
 # Lighting Sources:
 # Input Sources:
+### https://www.youtube.com/watch?v=D3OWzdppBrU Assited greatly in core functionality needed in Inspection System
 # Audio Sources:
 # AI/Collision Sources:
 # General Sources:
+### https://docs.godotengine.org/en/stable/ General Godot manual used throughout entire process
