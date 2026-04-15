@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqc6rqo27rgd2"]
+
+[ext_resource type="PackedScene" uid="uid://dp0x3473uewfj" path="res://Assets/Screwdriver.glb" id="1_xnkol"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f86yn"]
+size = Vector3(2.4684448, 13.635185, 2.3927002)
+
+[node name="screwdriver" groups=["Pickups"] instance=ExtResource("1_xnkol")]
+transform = Transform3D(0.035, 0, 0, 0, -1.5298985e-09, -0.035, 0, 0.035, -1.5298985e-09, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028778076, -5.8225975, -0.020446777)
+shape = SubResource("BoxShape3D_f86yn")
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.028778076, -5.8225975, -0.020446777)
+shape = SubResource("BoxShape3D_f86yn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp7twrw64ts5w"]
+[gd_scene load_steps=9 format=3 uid="uid://bp7twrw64ts5w"]
 
 [ext_resource type="Script" uid="uid://03bh615soeow" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cfdxa0rc7m307" path="res://Scenes/ground.tscn" id="1_bo1nx"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ce78liv57lmw1" path="res://Scenes/ladder.tscn" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dyyjaqwhmsasp" path="res://Scenes/table.tscn" id="5_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cj3r1y0fy57j4" path="res://Scenes/key.tscn" id="6_344ge"]
+[ext_resource type="PackedScene" uid="uid://dqc6rqo27rgd2" path="res://Scenes/screwdriver.tscn" id="7_344ge"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_8gbba")
@@ -25,7 +26,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.842571, -2)
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 5, 0, -1)
 
 [node name="Key" parent="World" instance=ExtResource("6_344ge")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.5695314, 1.107699, 0.14210683)
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.5695314, 1.107699, -0.70634395)
+
+[node name="screwdriver" parent="World" instance=ExtResource("7_344ge")]
+transform = Transform3D(0.035, 0, 0, 0, -1.5298985e-09, -0.035, 0, 0.035, -1.5298985e-09, 5.06187, 1.1455109, -0.3020497)
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
