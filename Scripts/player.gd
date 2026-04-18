@@ -32,6 +32,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	if current_state == State.LADDER:
+		# Disable floor collision while climbing
+		set_collision_mask_value(1, false)
 		velocity = Vector3.ZERO
 		var input_climb := Input.get_action_strength("move_forward") - Input.get_action_strength("move_backward")
 		# Y axis movement
@@ -39,6 +41,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 		
+	# Toggle collision back on
+	set_collision_mask_value(1, true)
+	
 	if ray.is_colliding():
 		var obj = ray.get_collider()
 		
