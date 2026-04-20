@@ -11,11 +11,14 @@ var zoomMin := -0.3
 var zoomMax := 1.4
 var zoomSpeed := 0.1
 
-@onready var placeholder := $Neck/Camera3D/InspectHolder
 @onready var reticle := $CanvasLayer/CenterContainer/Reticle
 @onready var ray := $Neck/Camera3D/RayCast3D
 @onready var Neck := $Neck
 @onready var camera := $Neck/Camera3D
+@onready var inspectCamera := $CanvasLayer/SubViewportContainer/SubViewport/Camera3D
+@onready var inspectViewport := $CanvasLayer/SubViewportContainer/SubViewport
+@onready var placeholder := $CanvasLayer/SubViewportContainer/SubViewport/InspectHolder
+@onready var inspectContainer := $CanvasLayer/SubViewportContainer
 
 enum State{
 	NORMAL,
@@ -25,6 +28,7 @@ var current_state = State.NORMAL
 func _ready() -> void:
 	# Set Mouse Invisible
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	inspectContainer.visible = false
 	reticle.visible = false
 
 func _physics_process(delta: float) -> void:
@@ -76,14 +80,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
-	if inspecting and placeholder:
+	if inspecting:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				zoomDistance += zoomSpeed
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				zoomDistance -= zoomSpeed
 			zoomDistance = clamp(zoomDistance, zoomMin, zoomMax)
-			placeholder.position.z = lerp(placeholder.position.z, zoomDistance, 0.1)
+			inspectCamera.position.z = lerp(inspectCamera.position.z, zoomDistance, 0.1)
 
 		if event is InputEventMouseMotion and inspectedItem:
 			inspectedItem.rotate_y(-event.relative.x * rotationSpeed)
@@ -115,10 +119,13 @@ func start_inspect(obj: Node3D):
 	inspecting = true
 	reticle.visible = false
 	set_physics_process(false)
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
+	inspectContainer.visible = true
+	inspectCamera.global_transform = camera.global_transform
 	inspectedItem = obj.duplicate()
 	placeholder.add_child(inspectedItem)
-	inspectedItem.transform.origin = Vector3(0, 0, -3)
+	inspectedItem.transform = Transform3D.IDENTITY
+	inspectedItem.position = Vector3.ZERO
 	var tween = create_tween()
 	tween.tween_property(inspectedItem, "transform:origin", Vector3(0, 0, -2), 0.25)\
 	.set_trans(Tween.TRANS_SINE)\
@@ -131,6 +138,7 @@ func stop_inspect():
 	inspecting = false
 	set_physics_process(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	inspectContainer.visible = false
 	if inspectedItem:
 		inspectedItem.queue_free()
 		inspectedItem = null

@@ -27,9 +27,6 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.00644035, 0.00407684, 0)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 target_position = Vector3(0, 0, -5)
 
-[node name="InspectHolder" type="Node3D" parent="Neck/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.65421677)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
@@ -41,7 +38,29 @@ offset_bottom = 25920.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.04, 0.04)
+mouse_filter = 2
 
 [node name="Reticle" type="TextureRect" parent="CanvasLayer/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("2_cvnsp")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+z_index = 10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -0.006, 0.555, 0)
+
+[node name="InspectHolder" type="Node3D" parent="CanvasLayer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555, -0.6590419)
