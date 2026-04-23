@@ -6,9 +6,9 @@ var is_hovering := false
 var inspecting := false
 var inspectedItem: Node3D = null
 var rotationSpeed := 0.01
-var zoomDistance := 0.7
-var zoomMin := -0.3
-var zoomMax := 1.4
+var zoomDistance := -1.0
+var zoomMin := -1.2
+var zoomMax := -0.5
 var zoomSpeed := 0.1
 
 @onready var reticle := $CanvasLayer/CenterContainer/Reticle
@@ -80,14 +80,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
-	if inspecting:
+	if inspecting and inspectedItem:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				zoomDistance += zoomSpeed
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				zoomDistance -= zoomSpeed
 			zoomDistance = clamp(zoomDistance, zoomMin, zoomMax)
-			inspectCamera.position.z = lerp(inspectCamera.position.z, zoomDistance, 0.1)
+			inspectedItem.position.z = lerp(inspectedItem.position.z, zoomDistance, 0.1)
 
 		if event is InputEventMouseMotion and inspectedItem:
 			inspectedItem.rotate_y(-event.relative.x * rotationSpeed)
@@ -118,16 +118,18 @@ func try_inspect():
 func start_inspect(obj: Node3D):
 	inspecting = true
 	reticle.visible = false
+	camera.current = false
+	inspectCamera.current = true
 	set_physics_process(false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 	inspectContainer.visible = true
 	inspectCamera.global_transform = camera.global_transform
 	inspectedItem = obj.duplicate()
-	placeholder.add_child(inspectedItem)
+	inspectCamera.add_child(inspectedItem)
 	inspectedItem.transform = Transform3D.IDENTITY
-	inspectedItem.position = Vector3.ZERO
+	inspectedItem.position = Vector3(0, 0, -1)
 	var tween = create_tween()
-	tween.tween_property(inspectedItem, "transform:origin", Vector3(0, 0, -2), 0.25)\
+	tween.tween_property(inspectedItem, "transform:origin", Vector3(0, 0, -1), 0.25)\
 	.set_trans(Tween.TRANS_SINE)\
 	.set_ease(Tween.EASE_OUT)
 	
@@ -136,6 +138,8 @@ func start_inspect(obj: Node3D):
 
 func stop_inspect():
 	inspecting = false
+	camera.current = true
+	inspectCamera.current = false
 	set_physics_process(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inspectContainer.visible = false
