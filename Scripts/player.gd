@@ -118,8 +118,6 @@ func try_inspect():
 func start_inspect(obj: Node3D):
 	inspecting = true
 	reticle.visible = false
-	camera.current = false
-	inspectCamera.current = true
 	set_physics_process(false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 	inspectContainer.visible = true
@@ -138,8 +136,6 @@ func start_inspect(obj: Node3D):
 
 func stop_inspect():
 	inspecting = false
-	camera.current = true
-	inspectCamera.current = false
 	set_physics_process(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inspectContainer.visible = false

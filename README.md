@@ -5,6 +5,7 @@
 ### https://www.youtube.com/watch?v=wPzXWfJjtXQ Assisted in Blender fundamentals and creating first iteration of a ladder
 ### https://valsekamerplant.itch.io/psx-style-walls-fences Asset pack used for fences and walls
 ### https://elegantcrow.itch.io/psx-retro-style-tree-pack Asset pack used for trees
+### https://halfhuman.itch.io/ps1-winter-tree Asset pack for tree / mountains / ground textures
 ### https://raycastly.github.io/texture-ripper/ Used for a lot of props found scattered on starting desk
 # Animation Sources:
 # Programming Sources:

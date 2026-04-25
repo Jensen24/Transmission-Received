@@ -1,0 +1,44 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bm5xwvias5116"
+path.s3tc="res://.godot/imported/assets_western-yellow-pine-tree-clip-art-fir-tree-b57415204a47c2661591.png-aeab93d54cf58dd421e80e47d817db46.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "13fc069b170214969c59d138e525d9ed"
+}
+
+[deps]
+
+source_file="res://Assets/assets_western-yellow-pine-tree-clip-art-fir-tree-b57415204a47c2661591.png"
+dest_files=["res://.godot/imported/assets_western-yellow-pine-tree-clip-art-fir-tree-b57415204a47c2661591.png-aeab93d54cf58dd421e80e47d817db46.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

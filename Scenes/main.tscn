@@ -1,21 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://bp7twrw64ts5w"]
+[gd_scene load_steps=9 format=3 uid="uid://bp7twrw64ts5w"]
 
 [ext_resource type="Script" uid="uid://03bh615soeow" path="res://Scripts/main.gd" id="1_8gbba"]
-[ext_resource type="PackedScene" uid="uid://cfdxa0rc7m307" path="res://Scenes/ground.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://c7gv56cbkcrt5" path="res://Scenes/player.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://b7eacps7wu4iv" path="res://Scenes/pause_menu.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dyyjaqwhmsasp" path="res://Scenes/table.tscn" id="5_6bp64"]
 [ext_resource type="PackedScene" uid="uid://cj3r1y0fy57j4" path="res://Scenes/key.tscn" id="6_344ge"]
 [ext_resource type="PackedScene" uid="uid://dqc6rqo27rgd2" path="res://Scenes/screwdriver.tscn" id="7_344ge"]
-[ext_resource type="PackedScene" uid="uid://c2hgnuyyhpiti" path="res://Scenes/radio_tower.tscn" id="7_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://cnnfgm7efexk2" path="res://Scenes/world.tscn" id="7_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://cs28ogp4p2sg4" path="res://Scenes/newspaper.tscn" id="8_ynf5e"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_8gbba")
 
 [node name="World" type="Node3D" parent="."]
-
-[node name="Ground" parent="World" instance=ExtResource("1_bo1nx")]
 
 [node name="Player" parent="World" instance=ExtResource("2_8gbba")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1.04987, 2.5644667)
@@ -29,11 +26,10 @@ transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.5695314, 1.423096,
 [node name="screwdriver" parent="World" instance=ExtResource("7_344ge")]
 transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 5.06187, 1.4421844, -0.38607642)
 
-[node name="RadioTower" parent="World" instance=ExtResource("7_ynf5e")]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.14318198, 0, -7.156272)
-
 [node name="newspaper" parent="World" instance=ExtResource("8_ynf5e")]
 transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, 0.08, 0, -0.08, -3.496911e-09, 5.3572655, 1.4214239, -0.35393578)
+
+[node name="assets" parent="World" instance=ExtResource("7_ynf5e")]
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3

@@ -1,7 +1,7 @@
 extends Node
 
 @onready var player = $World/Player
-@onready var pause_menu: Control = $HUD/PauseMenu
+@onready var pause_menu: Control = $HUD/PauseMenu 
 
 var paused = false
 
