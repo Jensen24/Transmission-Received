@@ -4,6 +4,10 @@ const SPEED = 5.5
 var ladder_array = []
 var is_hovering := false
 var inspecting := false
+var inspectSource = null
+var heldFuse = null
+var hasScrewDri = false
+var hasKey = false
 var inspectedItem: Node3D = null
 var rotationSpeed := 0.01
 var zoomDistance := -1.0
@@ -98,7 +102,10 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if event.is_action_pressed("interact"):
-		try_inspect()
+		if inspecting:
+			stop_inspect()
+		else:
+			try_inspect_or_place()
 	
 	if Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
@@ -106,17 +113,25 @@ func _input(event: InputEvent) -> void:
 			camera.rotate_x(-event.relative.y * 0.005)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
-func try_inspect():
+func try_inspect_or_place():
 	if not ray.is_colliding():
 		return
+		
 	var obj = ray.get_collider()
+	# Attempt Slot First
+	if obj and obj.has_method("interact"):
+		obj.interact(self)
+		return
+	# If not, Inspect
 	while obj and not obj.is_in_group("Pickups"):
 		obj = obj.get_parent()
 	if obj:
-		start_inspect(obj)
+		var source = obj.get_parent()
+		start_inspect(obj, source)
 	
-func start_inspect(obj: Node3D):
+func start_inspect(obj: Node3D, source):
 	inspecting = true
+	inspectSource = source
 	reticle.visible = false
 	set_physics_process(false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
@@ -135,6 +150,15 @@ func start_inspect(obj: Node3D):
 	obj.visible = false
 
 func stop_inspect():
+	if inspectedItem:
+		if inspectedItem.is_in_group("Key"):
+			hasKey = true
+		elif inspectedItem.is_in_group("Screwdriver"):
+			hasScrewDri = true
+	
+	if inspectSource and inspectSource.has_method("on_inspect_confirmed"):
+		inspectSource.on_inspect_confirmed(self)
+
 	inspecting = false
 	set_physics_process(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -142,6 +166,7 @@ func stop_inspect():
 	if inspectedItem:
 		inspectedItem.queue_free()
 		inspectedItem = null
+	inspectSource = null
 
 func reveal_reticle():
 	reticle.visible = true

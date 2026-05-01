@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d25ametuw04th"]
+
+[ext_resource type="Script" uid="uid://bmfc354bhxqql" path="res://Scenes/fuse_slot.gd" id="1_j1t0c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sn6du"]
+
+[node name="FuseSlot" type="Node3D"]
+script = ExtResource("1_j1t0c")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_sn6du")

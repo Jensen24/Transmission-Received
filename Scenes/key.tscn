@@ -9,7 +9,7 @@ data = PackedVector3Array(1.1049, 0, -1.8937999, 0.4432, 0.1768, -2.9129, 0.4799
 [sub_resource type="BoxShape3D" id="BoxShape3D_brn0f"]
 size = Vector3(2.4690552, 0.5838623, 5.4911804)
 
-[node name="Key" groups=["Pickups"] instance=ExtResource("1_ut0wq")]
+[node name="Key" groups=["Key", "Pickups"] instance=ExtResource("1_ut0wq")]
 script = ExtResource("2_udxw8")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Key" index="0"]

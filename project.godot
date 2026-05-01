@@ -24,6 +24,10 @@ window/size/viewport_height=1080
 Pickups=""
 Rocks=""
 Snow=""
+Player=""
+Fuse=""
+Key=""
+Screwdriver=""
 
 [input]
 

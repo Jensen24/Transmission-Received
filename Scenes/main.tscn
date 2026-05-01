@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp7twrw64ts5w"]
+[gd_scene load_steps=11 format=3 uid="uid://bp7twrw64ts5w"]
 
 [ext_resource type="Script" uid="uid://03bh615soeow" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://c7gv56cbkcrt5" path="res://Scenes/player.tscn" id="2_8gbba"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cj3r1y0fy57j4" path="res://Scenes/key.tscn" id="6_344ge"]
 [ext_resource type="PackedScene" uid="uid://dqc6rqo27rgd2" path="res://Scenes/screwdriver.tscn" id="7_344ge"]
 [ext_resource type="PackedScene" uid="uid://cnnfgm7efexk2" path="res://Scenes/world.tscn" id="7_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://cfagh3bkq8j0c" path="res://Scenes/fuse_box.tscn" id="8_hptm8"]
 [ext_resource type="PackedScene" uid="uid://cs28ogp4p2sg4" path="res://Scenes/newspaper.tscn" id="8_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://bju147uqddybc" path="res://Scenes/trash_bin.tscn" id="10_hptm8"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_8gbba")
@@ -21,7 +23,7 @@ transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1.04987, 2.5644667)
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5, 0, -1)
 
 [node name="Key" parent="World" instance=ExtResource("6_344ge")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.5695314, 1.423096, -0.36169526)
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.8247356, 1.4385452, -0.28862563)
 
 [node name="screwdriver" parent="World" instance=ExtResource("7_344ge")]
 transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 5.06187, 1.4421844, -0.38607642)
@@ -30,6 +32,10 @@ transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e
 transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, 0.08, 0, -0.08, -3.496911e-09, 5.3572655, 1.4214239, -0.35393578)
 
 [node name="assets" parent="World" instance=ExtResource("7_ynf5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060980797, 0, -0.019931793)
+
+[node name="FuseBox" parent="World" instance=ExtResource("8_hptm8")]
+transform = Transform3D(0.0027585384, 0, -0.11696747, 0, 0.117, 0, 0.11696747, 0, 0.0027585384, 4.233507, 1.4051964, -0.278193)
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -41,3 +47,6 @@ grow_vertical = 2
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource("4_jjvhh")]
 layout_mode = 1
+
+[node name="TrashBin" parent="." instance=ExtResource("10_hptm8")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -6.75772, 0.7410209, 11)
