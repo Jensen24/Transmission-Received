@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d25ametuw04th"]
+[gd_scene load_steps=4 format=3 uid="uid://d25ametuw04th"]
 
 [ext_resource type="Script" uid="uid://bmfc354bhxqql" path="res://Scenes/fuse_slot.gd" id="1_j1t0c"]
+[ext_resource type="PackedScene" uid="uid://qac4rsl3u4af" path="res://Scenes/fuse.tscn" id="2_6levl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sn6du"]
 
 [node name="FuseSlot" type="Node3D"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_j1t0c")
+startingFuseScene = ExtResource("2_6levl")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 

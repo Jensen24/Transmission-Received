@@ -16,6 +16,9 @@ script = ExtResource("1_8gbba")
 
 [node name="World" type="Node3D" parent="."]
 
+[node name="TrashBin" parent="World" instance=ExtResource("10_hptm8")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -6.75772, 0.7410209, 11)
+
 [node name="Player" parent="World" instance=ExtResource("2_8gbba")]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1.04987, 2.5644667)
 
@@ -47,6 +50,3 @@ grow_vertical = 2
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource("4_jjvhh")]
 layout_mode = 1
-
-[node name="TrashBin" parent="." instance=ExtResource("10_hptm8")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -6.75772, 0.7410209, 11)

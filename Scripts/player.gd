@@ -8,6 +8,7 @@ var inspectSource = null
 var heldFuse = null
 var hasScrewDri = false
 var hasKey = false
+var originalItem = null
 var inspectedItem: Node3D = null
 var rotationSpeed := 0.01
 var zoomDistance := -1.0
@@ -22,6 +23,7 @@ var zoomSpeed := 0.1
 @onready var inspectCamera := $CanvasLayer/SubViewportContainer/SubViewport/Camera3D
 @onready var inspectViewport := $CanvasLayer/SubViewportContainer/SubViewport
 @onready var placeholder := $CanvasLayer/SubViewportContainer/SubViewport/InspectHolder
+@onready var equipped := $Neck/Camera3D/Equipped
 @onready var inspectContainer := $CanvasLayer/SubViewportContainer
 
 enum State{
@@ -126,6 +128,8 @@ func try_inspect_or_place():
 	while obj and not obj.is_in_group("Pickups"):
 		obj = obj.get_parent()
 	if obj:
+		if obj.is_in_group("Fuse") and heldFuse != null:
+			return
 		var source = obj.get_parent()
 		start_inspect(obj, source)
 	
@@ -147,7 +151,9 @@ func start_inspect(obj: Node3D, source):
 	.set_ease(Tween.EASE_OUT)
 	
 	inspectedItem.scale = Vector3.ONE * 0.1
+	originalItem = obj
 	obj.visible = false
+	set_collision_enabled(obj, false)
 
 func stop_inspect():
 	if inspectedItem:
@@ -166,6 +172,14 @@ func stop_inspect():
 	if inspectedItem:
 		inspectedItem.queue_free()
 		inspectedItem = null
+	if originalItem:
+		if originalItem.is_in_group("Newspaper"):
+			if originalItem.get_parent():
+				originalItem.visible = true
+				set_collision_enabled(originalItem, true)
+		else:
+			if originalItem.get_parent():
+				originalItem.queue_free()
 	inspectSource = null
 
 func reveal_reticle():
@@ -173,3 +187,24 @@ func reveal_reticle():
 
 func hide_reticle():
 	reticle.visible = false
+
+func set_collision_enabled(node, enabled):
+	if node is CollisionObject3D:
+		node.set_deferred("disabled", not enabled)
+	for child in node.get_children():
+		set_collision_enabled(child, enabled)
+		
+func equip_fuse(fuse):
+	for child in equipped.get_children():
+		child.queue_free()
+	for child in fuse.get_children():
+		var mesh = child.duplicate()
+		equipped.add_child(mesh)
+		set_collision_enabled(mesh, false)
+		mesh.transform = Transform3D.IDENTITY
+		mesh.scale = Vector3.ONE * 0.08
+		break
+
+func de_equip_fuse():
+	for child in equipped.get_children():
+		child.queue_free()
