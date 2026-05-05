@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7gv56cbkcrt5"]
+[gd_scene load_steps=6 format=3 uid="uid://c7gv56cbkcrt5"]
 
 [ext_resource type="Script" uid="uid://b2uwllousx5s" path="res://Scripts/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://c2tkdwqa6iss3" path="res://Scenes/fake_fuse.tscn" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://5n2404ya2vbu" path="res://Assets/reticle.png" id="2_cvnsp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
@@ -10,6 +11,7 @@
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 process_mode = 1
 script = ExtResource("1_4flbx")
+fake_fuseScene = ExtResource("2_6t5aa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_sh265")
@@ -28,7 +30,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 target_position = Vector3(0, 0, -5)
 
 [node name="Equipped" type="Node3D" parent="Neck/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 0.6408067, 0.7677023, 0, -0.7677023, 0.6408067, 0.35820603, -0.066909194, -0.82713586)
+transform = Transform3D(-5.972285e-08, -0.7671652, 0.64144963, 0.6400962, 0.49282238, 0.589409, -0.76829475, 0.41058955, 0.49105957, 0.35820603, -0.18093508, -0.32315817)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

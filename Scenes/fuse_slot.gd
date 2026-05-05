@@ -13,8 +13,9 @@ func _ready():
 
 func on_inspect_confirmed(Player):
 	if currentFuse != null and Player.heldFuse == null:
+		currentFuse.get_parent().remove_child(currentFuse)
 		Player.heldFuse = currentFuse
-		Player.equip_fuse(currentFuse)
+		Player.equip_fuse()
 		currentFuse = null
 
 func interact(Player):
@@ -23,4 +24,5 @@ func interact(Player):
 		Player.heldFuse = null
 		Player.de_equip_fuse()
 		add_child(currentFuse)
+		currentFuse.visible = true
 		currentFuse.global_transform = $Marker3D.global_transform

@@ -16,6 +16,7 @@ var zoomMin := -1.2
 var zoomMax := -0.5
 var zoomSpeed := 0.1
 
+@export var fake_fuseScene : PackedScene
 @onready var reticle := $CanvasLayer/CenterContainer/Reticle
 @onready var ray := $Neck/Camera3D/RayCast3D
 @onready var Neck := $Neck
@@ -56,8 +57,7 @@ func _physics_process(delta: float) -> void:
 	
 	if ray.is_colliding():
 		var obj = ray.get_collider()
-		
-		while obj and not obj.is_in_group("Pickups"):
+		while obj && obj.is_in_group("Pickups") && obj.is_in_group("Slots"):
 			obj = obj.get_parent()
 		
 		if obj:
@@ -118,10 +118,13 @@ func _input(event: InputEvent) -> void:
 func try_inspect_or_place():
 	if not ray.is_colliding():
 		return
-		
 	var obj = ray.get_collider()
-	# Attempt Slot First
+	obj = obj.get_parent()
 	if obj and obj.has_method("interact"):
+		if obj.is_in_group("Slots"):
+			if heldFuse != null:
+				obj.interact(self)
+			return
 		obj.interact(self)
 		return
 	# If not, Inspect
@@ -153,7 +156,7 @@ func start_inspect(obj: Node3D, source):
 	inspectedItem.scale = Vector3.ONE * 0.1
 	originalItem = obj
 	obj.visible = false
-	set_collision_enabled(obj, false)
+	set_collision(obj, false)
 
 func stop_inspect():
 	if inspectedItem:
@@ -176,7 +179,7 @@ func stop_inspect():
 		if originalItem.is_in_group("Newspaper"):
 			if originalItem.get_parent():
 				originalItem.visible = true
-				set_collision_enabled(originalItem, true)
+				set_collision(originalItem, true)
 		else:
 			if originalItem.get_parent():
 				originalItem.queue_free()
@@ -188,22 +191,19 @@ func reveal_reticle():
 func hide_reticle():
 	reticle.visible = false
 
-func set_collision_enabled(node, enabled):
+func set_collision(node, enabled):
 	if node is CollisionObject3D:
 		node.set_deferred("disabled", not enabled)
 	for child in node.get_children():
-		set_collision_enabled(child, enabled)
+		set_collision(child, enabled)
 		
-func equip_fuse(fuse):
+func equip_fuse():
 	for child in equipped.get_children():
 		child.queue_free()
-	for child in fuse.get_children():
-		var mesh = child.duplicate()
-		equipped.add_child(mesh)
-		set_collision_enabled(mesh, false)
-		mesh.transform = Transform3D.IDENTITY
-		mesh.scale = Vector3.ONE * 0.08
-		break
+	var mesh = fake_fuseScene.instantiate()
+	equipped.add_child(mesh)
+	mesh.transform = Transform3D.IDENTITY
+	mesh.scale = Vector3.ONE * 0.08
 
 func de_equip_fuse():
 	for child in equipped.get_children():
