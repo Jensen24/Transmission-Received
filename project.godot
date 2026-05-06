@@ -15,6 +15,10 @@ run/main_scene="uid://cfagh3bkq8j0c"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
+[autoload]
+
+PuzzleManager="*res://Scripts/puzzle_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -31,6 +35,7 @@ Key=""
 Screwdriver=""
 Newspaper=""
 Slots=""
+Ports=""
 
 [input]
 

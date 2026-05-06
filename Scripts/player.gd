@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	
 	if ray.is_colliding():
 		var obj = ray.get_collider()
-		while obj && obj.is_in_group("Pickups") && obj.is_in_group("Slots"):
+		while obj and not obj.is_in_group("Pickups") and not obj.is_in_group("Slots") and not obj.is_in_group("Ports"):
 			obj = obj.get_parent()
 		
 		if obj:

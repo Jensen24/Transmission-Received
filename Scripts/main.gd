@@ -9,6 +9,10 @@ func _ready() -> void:
 	pause_menu.hide()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	pause_menu.resume_game.connect(_on_resume_game)
+	randomize()
+	await get_tree().process_frame
+	PuzzleManager.collect_signatures()
+	PuzzleManager.assign_ports()
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):

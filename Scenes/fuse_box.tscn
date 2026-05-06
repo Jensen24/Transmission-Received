@@ -178,31 +178,31 @@ script = ExtResource("1_7sfy2")
 
 [node name="Slots" type="Node3D" parent="."]
 
-[node name="FuseSlot" parent="Slots" instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 5.941207, 2.292882)
 
-[node name="FuseSlot2" parent="Slots" instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot2" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13722527, 5.9377475, 0)
 
-[node name="FuseSlot3" parent="Slots" instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot3" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 5.9464254, -2.3280125)
 
-[node name="FuseSlot4" parent="Slots" instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot4" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 3.6526117, 2.3159635)
 
-[node name="FuseSlot5" parent="Slots" instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot5" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 3.6526117, 0)
 
-[node name="FuseSlot6" parent="Slots" instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot6" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 3.6526117, -2.294961)
 
-[node name="FuseSlot7" parent="Slots" instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot7" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 1.39701, 2.294419)
 
-[node name="FuseSlot8" parent="Slots" instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot8" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 1.4375689, 0)
 
-[node name="FuseSlot9" parent="Slots" instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot9" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 1.4312432, -2.2810295)
 
 [node name="Box" type="MeshInstance3D" parent="."]
