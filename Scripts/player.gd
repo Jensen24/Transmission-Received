@@ -144,7 +144,11 @@ func start_inspect(obj: Node3D, source):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 	inspectContainer.visible = true
 	inspectCamera.global_transform = camera.global_transform
-	inspectedItem = obj.duplicate()
+	if obj.is_in_group("Fuse"):
+		inspectedItem = fake_fuseScene.instantiate()
+		inspectedItem.signature = obj.signature
+	else:
+		inspectedItem = obj.duplicate()
 	inspectCamera.add_child(inspectedItem)
 	inspectedItem.transform = Transform3D.IDENTITY
 	inspectedItem.position = Vector3(0, 0, -1)

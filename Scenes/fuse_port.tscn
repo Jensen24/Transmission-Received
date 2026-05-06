@@ -14,12 +14,15 @@ script = ExtResource("2_76hqn")
 
 [node name="PortSlot1" parent="Slots" index="0" groups=["Ports"] instance=ExtResource("2_d5j1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56098044, 1.4907439, 2.5526655)
+portSlot = true
 
 [node name="PortSlot2" parent="Slots" index="1" groups=["Ports"] instance=ExtResource("2_d5j1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.561, 1.491, -0.033)
+portSlot = true
 
 [node name="PortSlot3" parent="Slots" index="2" groups=["Ports"] instance=ExtResource("2_d5j1a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.561, 1.491, -2.657)
+portSlot = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
 

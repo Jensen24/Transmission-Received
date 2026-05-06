@@ -11,6 +11,7 @@ func _ready() -> void:
 	pause_menu.resume_game.connect(_on_resume_game)
 	randomize()
 	await get_tree().process_frame
+	PuzzleManager.assign_fuses()
 	PuzzleManager.collect_signatures()
 	PuzzleManager.assign_ports()
 	

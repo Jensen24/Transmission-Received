@@ -222,7 +222,6 @@ skeleton = NodePath("")
 
 [node name="Flap" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.6160548, 0, 0, 0, 3.6160548, 0, 0, 0, 3.6160548, 1.1986222, 3.6781888, 3.4599783)
-visible = false
 mesh = SubResource("ArrayMesh_p2x0g")
 skeleton = NodePath("")
 

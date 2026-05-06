@@ -10,7 +10,6 @@ var currentFuse = null
 func _ready():
 	if startingFuseScene and not is_in_group("Ports"):
 		var fuse = startingFuseScene.instantiate()
-		fuse.signature = PuzzleManager.generate_uniques()
 		add_child(fuse)
 		fuse.global_transform = $Marker3D.global_transform
 		currentFuse = fuse
@@ -28,6 +27,8 @@ func interact(Player):
 		Player.heldFuse = null
 		Player.de_equip_fuse()
 		add_child(currentFuse)
+		print("PORT SLOT?", portSlot)
+		print("Placed Fuse Signature: ", currentFuse.signature)
 		currentFuse.visible = true
 		currentFuse.global_transform = $Marker3D.global_transform
 		if portSlot:

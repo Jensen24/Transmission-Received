@@ -34,3 +34,14 @@ func assign_ports():
 	for i in range(ports.size()):
 		if i < pool.size():
 			ports[i].correctSig = pool[i]
+			
+func assign_fuses():
+	usedSigs.clear()
+	fuseSigs.clear()
+
+	var fuses = get_tree().get_nodes_in_group("Fuse")
+
+	for fuse in fuses:
+		var sig = generate_uniques()
+		fuse.signature = sig
+		fuseSigs.append(sig)

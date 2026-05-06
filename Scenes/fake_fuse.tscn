@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2tkdwqa6iss3"]
+[gd_scene load_steps=3 format=3 uid="uid://c2tkdwqa6iss3"]
 
 [ext_resource type="PackedScene" uid="uid://bl0s2g4q8tal3" path="res://Assets/Core.glb" id="1_8kypi"]
+[ext_resource type="Script" uid="uid://r2fvcq1mcwu" path="res://fake_fuse.gd" id="2_1q03c"]
 
 [node name="Core" instance=ExtResource("1_8kypi")]
+script = ExtResource("2_1q03c")
+
+[node name="Label3D" type="Label3D" parent="." index="1"]
+transform = Transform3D(0.014077023, 0.6274898, -0.4966208, -0.21790321, 0.4327626, 0.6755655, 0.8270932, 0.10333429, 0.18643457, -1.298152, 0.49428993, 0.14351588)
+text = "Test
+"
