@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bp7twrw64ts5w"]
+[gd_scene load_steps=14 format=3 uid="uid://bp7twrw64ts5w"]
 
 [ext_resource type="Script" uid="uid://03bh615soeow" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://c7gv56cbkcrt5" path="res://Scenes/player.tscn" id="2_8gbba"]
@@ -11,14 +11,25 @@
 [ext_resource type="PackedScene" uid="uid://cs28ogp4p2sg4" path="res://Scenes/newspaper.tscn" id="8_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://bju147uqddybc" path="res://Scenes/trash_bin.tscn" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://7n4ad51qkfdt" path="res://Scenes/fuse_port.tscn" id="11_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://d17svgkxw7ebg" path="res://Scenes/fuse_box2.tscn" id="12_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://bd0rxyqhff3pn" path="res://Scenes/fuse_port2.tscn" id="13_jkdf5"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_8gbba")
 
 [node name="World" type="Node3D" parent="."]
 
+[node name="FuseBox2" parent="World" instance=ExtResource("12_fdnlq")]
+transform = Transform3D(0.11699999, 0, 0, 0, 0.117, 0, 0, 0, 0.11699999, 3.603, 31.91143, 12.737)
+
+[node name="FuseBox" parent="World" instance=ExtResource("8_hptm8")]
+transform = Transform3D(-0.11699999, 0, 1.0228464e-08, 0, 0.117, 0, -1.0228464e-08, 0, -0.11699999, -2.438, 31.911, 13.011)
+
+[node name="CylinderPort2" parent="World" instance=ExtResource("13_jkdf5")]
+transform = Transform3D(0.11699999, 0, 0, 0, 0.117, 0, 0, 0, 0.11699999, 3.6031966, 43.98677, 12.737452)
+
 [node name="CylinderPort" parent="World" instance=ExtResource("11_d1ilt")]
-transform = Transform3D(0.0018050757, 0, 0.116986066, 0, 0.11700001, 0, -0.116986066, 0, 0.0018050757, 4.259068, 1.3530111, -1.2913204)
+transform = Transform3D(-0.116999984, 0, -1.0228463e-08, 0, 0.11700001, 0, 1.0228463e-08, 0, -0.116999984, -2.438, 43.987, 13.011)
 
 [node name="TrashBin" parent="World" instance=ExtResource("10_hptm8")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -6.75772, 0.7410209, 11)
@@ -40,9 +51,6 @@ transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, 0.08, 0, -0.08, -3.496911e
 
 [node name="assets" parent="World" instance=ExtResource("7_ynf5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060980797, 0, -0.019931793)
-
-[node name="FuseBox" parent="World" instance=ExtResource("8_hptm8")]
-transform = Transform3D(0.0027585384, 0, -0.11696747, 0, 0.117, 0, 0.11696747, 0, 0.0027585384, 4.233507, 1.4051964, -0.278193)
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3

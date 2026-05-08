@@ -1,14 +1,14 @@
-[gd_scene load_steps=19 format=4 uid="uid://cfagh3bkq8j0c"]
+[gd_scene load_steps=19 format=4 uid="uid://d17svgkxw7ebg"]
 
-[ext_resource type="Script" uid="uid://crv6mg43mbbiw" path="res://Scripts/fuse_box.gd" id="1_7sfy2"]
-[ext_resource type="Texture2D" uid="uid://eul2wrxnm6qc" path="res://Assets/FuseBox_atlas (6).png" id="1_gojlo"]
-[ext_resource type="Texture2D" uid="uid://d0qtlqglbc867" path="res://Assets/FuseBox_leather_steel.png" id="2_7sfy2"]
-[ext_resource type="PackedScene" uid="uid://d25ametuw04th" path="res://Scenes/fuse_slot.tscn" id="2_gw7o6"]
+[ext_resource type="Script" uid="uid://crv6mg43mbbiw" path="res://Scripts/fuse_box.gd" id="1_mpc72"]
+[ext_resource type="PackedScene" uid="uid://d25ametuw04th" path="res://Scenes/fuse_slot.tscn" id="2_1kj07"]
+[ext_resource type="Texture2D" uid="uid://eul2wrxnm6qc" path="res://Assets/FuseBox_atlas (6).png" id="3_ctohy"]
+[ext_resource type="Texture2D" uid="uid://d0qtlqglbc867" path="res://Assets/FuseBox_leather_steel.png" id="4_e38uj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gma6n"]
 resource_name = "Locker"
 cull_mode = 2
-albedo_texture = ExtResource("1_gojlo")
+albedo_texture = ExtResource("3_ctohy")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0p8mc"]
@@ -49,7 +49,7 @@ data = PackedVector3Array(0.3416, 1, -1, -1, 1, 1, -1, 1, -1, 0.3416, 1, -1, 0.3
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_61osy"]
 resource_name = "Leather"
 cull_mode = 2
-albedo_texture = ExtResource("2_7sfy2")
+albedo_texture = ExtResource("4_e38uj")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e8kft"]
@@ -119,7 +119,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1ym8v")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7sfy2"]
-size = Vector3(4.5049057, 2.5041504, 7.003784)
+size = Vector3(4.3417587, 2.5041504, 7.003784)
 
 [sub_resource type="Animation" id="Animation_gw7o6"]
 length = 0.001
@@ -174,35 +174,35 @@ _data = {
 }
 
 [node name="FuseBox" type="Node3D"]
-script = ExtResource("1_7sfy2")
+script = ExtResource("1_mpc72")
 
 [node name="Slots" type="Node3D" parent="."]
 
-[node name="FuseSlot" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot" parent="Slots" groups=["Slots"] instance=ExtResource("2_1kj07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 5.941207, 2.292882)
 
-[node name="FuseSlot2" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot2" parent="Slots" groups=["Slots"] instance=ExtResource("2_1kj07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13722527, 5.9377475, 0)
 
-[node name="FuseSlot3" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot3" parent="Slots" groups=["Slots"] instance=ExtResource("2_1kj07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 5.9464254, -2.3280125)
 
-[node name="FuseSlot4" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot4" parent="Slots" groups=["Slots"] instance=ExtResource("2_1kj07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 3.6526117, 2.3159635)
 
-[node name="FuseSlot5" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot5" parent="Slots" groups=["Slots"] instance=ExtResource("2_1kj07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 3.6526117, 0)
 
-[node name="FuseSlot6" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot6" parent="Slots" groups=["Slots"] instance=ExtResource("2_1kj07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 3.6526117, -2.294961)
 
-[node name="FuseSlot7" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot7" parent="Slots" groups=["Slots"] instance=ExtResource("2_1kj07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 1.39701, 2.294419)
 
-[node name="FuseSlot8" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot8" parent="Slots" groups=["Slots"] instance=ExtResource("2_1kj07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 1.4375689, 0)
 
-[node name="FuseSlot9" parent="Slots" groups=["Slots"] instance=ExtResource("2_gw7o6")]
+[node name="FuseSlot9" parent="Slots" groups=["Slots"] instance=ExtResource("2_1kj07")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14316595, 1.4312432, -2.2810295)
 
 [node name="Box" type="MeshInstance3D" parent="."]
@@ -222,14 +222,13 @@ skeleton = NodePath("")
 
 [node name="Flap" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.6160548, 0, 0, 0, 3.6160548, 0, 0, 0, 3.6160548, 1.1986222, 3.6781888, 3.4599783)
-visible = false
 mesh = SubResource("ArrayMesh_p2x0g")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6091783, 1.4075928, 0.04144287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5276048, 1.4075928, 0.04144287)
 shape = SubResource("BoxShape3D_7sfy2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

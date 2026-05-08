@@ -27,8 +27,6 @@ func interact(Player):
 		Player.heldFuse = null
 		Player.de_equip_fuse()
 		add_child(currentFuse)
-		print("PORT SLOT?", portSlot)
-		print("Placed Fuse Signature: ", currentFuse.signature)
 		currentFuse.visible = true
 		currentFuse.global_transform = $Marker3D.global_transform
 		if portSlot:
@@ -42,4 +40,3 @@ func check_fuse():
 		print("Correct")
 	else:
 		print("Incorrect")
-		

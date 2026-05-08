@@ -2,6 +2,8 @@ extends Node
 
 var fuseSigs = []
 var usedSigs = []
+var completedPuzzleCount = 0
+var requiredPuzzleCount = 2
 
 func generate_signatures():
 	var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -45,3 +47,7 @@ func assign_fuses():
 		var sig = generate_uniques()
 		fuse.signature = sig
 		fuseSigs.append(sig)
+
+func increment_count():
+	completedPuzzleCount += 1
+	print("Puzzle Count raised by 1")
