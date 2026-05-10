@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr4olkkfwgtoj"]
+
+[ext_resource type="PackedScene" uid="uid://npttmy72awll" path="res://Scenes/spawn_shack.tscn" id="1_hx0n2"]
+[ext_resource type="PackedScene" uid="uid://dyyjaqwhmsasp" path="res://Scenes/table.tscn" id="2_fbkke"]
+[ext_resource type="PackedScene" uid="uid://dqc6rqo27rgd2" path="res://Scenes/screwdriver.tscn" id="3_45t7l"]
+[ext_resource type="PackedScene" uid="uid://cj3r1y0fy57j4" path="res://Scenes/key.tscn" id="4_361rb"]
+[ext_resource type="PackedScene" uid="uid://cs28ogp4p2sg4" path="res://Scenes/newspaper.tscn" id="5_48vkc"]
+
+[node name="Inside" type="Node3D"]
+
+[node name="ConcShack" parent="." instance=ExtResource("1_hx0n2")]
+
+[node name="LPTable" parent="." instance=ExtResource("2_fbkke")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5, 0, -1)
+
+[node name="screwdriver" parent="." instance=ExtResource("3_45t7l")]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 5.06187, 1.4421844, -0.38607642)
+
+[node name="Key" parent="." instance=ExtResource("4_361rb")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, 4.8247356, 1.4385452, -0.28862563)
+
+[node name="newspaper" parent="." instance=ExtResource("5_48vkc")]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, 0.08, 0, -0.08, -3.496911e-09, 5.3572655, 1.4214239, -0.35393578)
