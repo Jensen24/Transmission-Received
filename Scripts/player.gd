@@ -11,14 +11,15 @@ var hasKey = false
 var originalItem = null
 var inspectedItem: Node3D = null
 var rotationSpeed := 0.01
-var zoomDistance := -1.0
+var zoomDistance := -0.9
 var zoomMin := -1.2
-var zoomMax := -0.5
+var zoomMax := -0.3
 var zoomSpeed := 0.1
 
 @export var fake_fuseScene : PackedScene
 @onready var reticle := $CanvasLayer/CenterContainer/Reticle
 @onready var ray := $Neck/Camera3D/RayCast3D
+@onready var matRay := $MatRay
 @onready var Neck := $Neck
 @onready var camera := $Neck/Camera3D
 @onready var inspectCamera := $CanvasLayer/SubViewportContainer/SubViewport/Camera3D
@@ -35,6 +36,7 @@ var current_state = State.NORMAL
 func _ready() -> void:
 	# Set Mouse Invisible
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	AudioManager.player = self
 	inspectContainer.visible = false
 	reticle.visible = false
 
@@ -55,6 +57,17 @@ func _physics_process(delta: float) -> void:
 	# Toggle collision back on
 	set_collision_mask_value(1, true)
 	
+	if matRay.is_colliding() and is_on_floor():
+		var mat = matRay.get_collider()
+		
+		if velocity.length() > 0.1:
+			if mat.is_in_group("Snow"):
+				AudioManager.play_footstep(AudioManager.snowFoots.pick_random())
+			elif mat.is_in_group("Rocks"):
+				AudioManager.play_footstep(AudioManager.stoneFoots.pick_random())
+			elif mat.is_in_group("Metal"):
+				AudioManager.play_footstep(AudioManager.metalFoots.pick_random())
+
 	if ray.is_colliding():
 		var obj = ray.get_collider()
 		while obj and not obj.is_in_group("Pickups") and not obj.is_in_group("Slots") and not obj.is_in_group("Ports"):
@@ -157,7 +170,7 @@ func start_inspect(obj: Node3D, source):
 	.set_trans(Tween.TRANS_SINE)\
 	.set_ease(Tween.EASE_OUT)
 	
-	inspectedItem.scale = Vector3.ONE * 0.1
+	inspectedItem.scale = Vector3.ONE * 0.05
 	originalItem = obj
 	obj.visible = false
 	set_collision(obj, false)

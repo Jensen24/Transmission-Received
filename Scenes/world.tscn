@@ -597,12 +597,12 @@ data = PackedVector3Array(0.61359996, -0.6368, -1.0067999, 0.93969995, -0.3955, 
 
 [node name="assets" type="Node3D"]
 
-[node name="SnowPile" type="MeshInstance3D" parent="."]
+[node name="SnowPile" type="MeshInstance3D" parent="." groups=["Snow"]]
 transform = Transform3D(2.7280915, 0, 0, 0, 2.7280915, 0, 0, 0, 2.7280915, 11.870068, 0.044282153, 5.3561916)
 mesh = SubResource("ArrayMesh_fh24w")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SnowPile"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SnowPile" groups=["Snow"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SnowPile/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_lqavo")
@@ -682,7 +682,7 @@ transform = Transform3D(166.76042, 0, 0, 0, 166.76042, 0, 0, 0, 166.76042, 0, 0,
 mesh = SubResource("ArrayMesh_4nmqe")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground" groups=["Snow"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_dxilr")
@@ -692,7 +692,7 @@ transform = Transform3D(2.8670819, 0, 0, 0, 2.8670819, 0, 0, 0, 2.8670819, 14.64
 mesh = SubResource("ArrayMesh_n3fr8")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RockPile"]
+[node name="StaticBody3D" type="StaticBody3D" parent="RockPile" groups=["Rocks"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RockPile/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wfeun")
@@ -732,7 +732,7 @@ transform = Transform3D(3.468213, 0.33074582, 12.287853, 2.4906447, 4.045408, -0
 mesh = SubResource("ArrayMesh_3mn8g")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RockPile2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="RockPile2" groups=["Rocks"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RockPile2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xgrop")
@@ -805,7 +805,7 @@ transform = Transform3D(2.7280915, 0, 0, 0, 2.7280915, 0, 0, 0, 2.7280915, -30.6
 mesh = SubResource("ArrayMesh_fh24w")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SnowPile2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SnowPile2" groups=["Snow"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SnowPile2/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_lqavo")
@@ -815,7 +815,7 @@ transform = Transform3D(2.7280915, 0, 0, 0, 2.7280915, 0, 0, 0, 2.7280915, 31.61
 mesh = SubResource("ArrayMesh_fh24w")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SnowPile3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SnowPile3" groups=["Snow"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SnowPile3/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_lqavo")
@@ -825,7 +825,7 @@ transform = Transform3D(2.8670819, 0, 0, 0, 2.8670819, 0, 0, 0, 2.8670819, -21.7
 mesh = SubResource("ArrayMesh_n3fr8")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RockPile5"]
+[node name="StaticBody3D" type="StaticBody3D" parent="RockPile5" groups=["Rocks"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RockPile5/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wfeun")
@@ -835,7 +835,7 @@ transform = Transform3D(2.8670819, 0, 0, 0, 2.8670819, 0, 0, 0, 2.8670819, -16.2
 mesh = SubResource("ArrayMesh_n3fr8")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RockPile6"]
+[node name="StaticBody3D" type="StaticBody3D" parent="RockPile6" groups=["Rocks"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RockPile6/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wfeun")
@@ -845,7 +845,7 @@ transform = Transform3D(2.8670819, 0, 0, 0, 2.8670819, 0, 0, 0, 2.8670819, 53.97
 mesh = SubResource("ArrayMesh_n3fr8")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RockPile7"]
+[node name="StaticBody3D" type="StaticBody3D" parent="RockPile7" groups=["Rocks"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RockPile7/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wfeun")
@@ -855,7 +855,7 @@ transform = Transform3D(2.8670819, 0, 0, 0, 2.8670819, 0, 0, 0, 2.8670819, -56.4
 mesh = SubResource("ArrayMesh_n3fr8")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RockPile8"]
+[node name="StaticBody3D" type="StaticBody3D" parent="RockPile8" groups=["Rocks"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RockPile8/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_wfeun")
@@ -868,3 +868,16 @@ transform = Transform3D(-0.7473033, 0, 1.8551382, 0, 2, 0, -1.8551382, 0, -0.747
 
 [node name="ConcShack" parent="." instance=ExtResource("15_o2rbt")]
 transform = Transform3D(-1.4, 0, -1.2239188e-07, 0, 1.4, 0, 1.2239188e-07, 0, -1.4, -11.060728, 0.03, 9.560421)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0065623564, 0.9999785, 0, -0.99997854, -0.006562356, 0.39096832, 92.17117, -1.9533911)
+light_color = Color(0.5019608, 0.5019608, 0.5019608, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 167.3
+sky_mode = 1
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4625889, 74.04521, 12.608685)
+light_color = Color(1, 0, 0, 1)
+light_energy = 3.971
+omni_range = 30.0

@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 PuzzleManager="*res://Scripts/puzzle_manager.gd"
+AudioManager="*res://Scenes/audio_manager.tscn"
 
 [display]
 
@@ -36,6 +37,7 @@ Screwdriver=""
 Newspaper=""
 Slots=""
 Ports=""
+Metal=""
 
 [input]
 

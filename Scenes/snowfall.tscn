@@ -55,7 +55,7 @@ material = SubResource("StandardMaterial3D_7t6gs")
 
 [node name="Snow" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
-amount = 1024
+amount = 1536
 lifetime = 3.5
 visibility_aabb = AABB(-47.805546, -62.047253, -54.336105, 94.1604, 65.01674, 98.247406)
 process_material = SubResource("ParticleProcessMaterial_xnvkg")

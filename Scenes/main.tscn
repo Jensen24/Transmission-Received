@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bp7twrw64ts5w"]
+[gd_scene load_steps=13 format=3 uid="uid://bp7twrw64ts5w"]
 
 [ext_resource type="Script" uid="uid://03bh615soeow" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://c7gv56cbkcrt5" path="res://Scenes/player.tscn" id="2_8gbba"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cnnfgm7efexk2" path="res://Scenes/world.tscn" id="7_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://cfagh3bkq8j0c" path="res://Scenes/fuse_box.tscn" id="8_hptm8"]
 [ext_resource type="PackedScene" uid="uid://cbfbesysoqmou" path="res://Scenes/snowfall.tscn" id="8_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://b67qqbsaega1u" path="res://Scenes/angel.tscn" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://bju147uqddybc" path="res://Scenes/trash_bin.tscn" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://bjstda724qblr" path="res://Scenes/audio_manager.tscn" id="11_6iyac"]
 [ext_resource type="PackedScene" uid="uid://7n4ad51qkfdt" path="res://Scenes/fuse_port.tscn" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://d17svgkxw7ebg" path="res://Scenes/fuse_box2.tscn" id="12_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://bd0rxyqhff3pn" path="res://Scenes/fuse_port2.tscn" id="13_jkdf5"]
@@ -35,10 +37,15 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -6.75772, 0.7410209, 11
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1.04987, 2.5644667)
 
 [node name="Snowfall" parent="World/Player" instance=ExtResource("8_jkdf5")]
-transform = Transform3D(0.71428573, 0, 0, 0, 0.71428573, 0, 0, 0, 0.71428573, 0, -1.6763067, 0.064187884)
+transform = Transform3D(0.71428573, 0, 0, 0, 0.71428573, 0, 0, 0, 0.71428573, 0, 3.1858952, 0.064187884)
 
 [node name="assets" parent="World" instance=ExtResource("7_ynf5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060980797, 0, -0.019931793)
+
+[node name="LPAngel" parent="World" instance=ExtResource("10_d1ilt")]
+transform = Transform3D(-4, -9.119748e-08, 5.4941756e-07, 1.4524775e-07, 3.638628, 1.6614407, -5.376614e-07, 1.6614407, -3.638628, 0, 76.352776, -60.371655)
+
+[node name="AudioManager" parent="World" instance=ExtResource("11_6iyac")]
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3

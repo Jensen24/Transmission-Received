@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://7n4ad51qkfdt"]
 
 [ext_resource type="PackedScene" uid="uid://bacw3rqf6cpt6" path="res://Assets/CylinderPort.glb" id="1_hhqwn"]
-[ext_resource type="Script" uid="uid://ctxbi01b3evm8" path="res://Scenes/fuse_port.gd" id="2_76hqn"]
+[ext_resource type="Script" uid="uid://ctxbi01b3evm8" path="res://Scripts/fuse_port.gd" id="2_76hqn"]
 [ext_resource type="PackedScene" uid="uid://d25ametuw04th" path="res://Scenes/fuse_slot.tscn" id="2_d5j1a"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_d5j1a"]

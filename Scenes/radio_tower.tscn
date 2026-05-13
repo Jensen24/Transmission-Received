@@ -478,12 +478,12 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Railing_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xygxx")
 
-[node name="PlatformThree" type="MeshInstance3D" parent="."]
+[node name="PlatformThree" type="MeshInstance3D" parent="." groups=["Metal"]]
 transform = Transform3D(10, 0, 0, 0, 20, 0, 0, 0, 10, -0.3969369, 70.65762, 1.182977)
 mesh = SubResource("ArrayMesh_8al8d")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PlatformThree"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformThree" groups=["Metal"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformThree/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0068359524, 0, -0.0032691956)
@@ -504,12 +504,12 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Railing_001/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mx7ym")
 
-[node name="PlatformOne" type="MeshInstance3D" parent="."]
+[node name="PlatformOne" type="MeshInstance3D" parent="." groups=["Metal"]]
 transform = Transform3D(10, 0, 0, 0, 20, 0, 0, 0, 10, -0.5635371, 30.323833, 0.7807665)
 mesh = SubResource("ArrayMesh_w05i0")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PlatformOne"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformOne" groups=["Metal"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformOne/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0068359524, 0, -0.0032691956)
@@ -520,12 +520,12 @@ transform = Transform3D(-10, 0, -3.8941434e-06, 0, 20, 0, 3.8941434e-06, 0, -10,
 mesh = SubResource("ArrayMesh_hiqiw")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Railing_003"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Railing_003" groups=["Metal"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Railing_003/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_aaah4")
 
-[node name="PlatformTwo" type="MeshInstance3D" parent="."]
+[node name="PlatformTwo" type="MeshInstance3D" parent="." groups=["Metal"]]
 transform = Transform3D(-10, 0, -3.8941434e-06, 0, 20, 0, 3.8941434e-06, 0, -10, 0.039689064, 50.510967, -1.1767015)
 mesh = SubResource("ArrayMesh_dne75")
 skeleton = NodePath("")
@@ -546,12 +546,12 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Railing_004/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_0pkjd")
 
-[node name="PlatformFour" type="MeshInstance3D" parent="."]
+[node name="PlatformFour" type="MeshInstance3D" parent="." groups=["Metal"]]
 transform = Transform3D(-10, 0, -3.8941434e-06, 0, 20, 0, 3.8941434e-06, 0, -10, -0.0925951, 90.52905, -0.98376083)
 mesh = SubResource("ArrayMesh_4yg3v")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PlatformFour"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformFour" groups=["Metal"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformFour/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0068359524, 0, -0.0032691956)

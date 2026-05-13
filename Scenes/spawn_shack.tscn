@@ -44,6 +44,8 @@ shape = SubResource("ConcavePolygonShape3D_sjb3r")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EWall/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_j02j0")
 
+[node name="Ground" parent="." index="4" groups=["Rocks"]]
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D" index="0"]
