@@ -1,9 +1,14 @@
 extends Node
 
+signal puzzle_threshold_reached
+
 var fuseSigs = []
 var usedSigs = []
 var completedPuzzleCount = 0
-var requiredPuzzleCount = 2
+var requiredPuzzleCount := 2
+var musicStarted := false
+
+@export var musicTrigger := 1
 
 func generate_signatures():
 	var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -50,4 +55,6 @@ func assign_fuses():
 
 func increment_count():
 	completedPuzzleCount += 1
-	print("Puzzle Count raised by 1")
+	if not musicStarted and completedPuzzleCount >= musicTrigger:
+		musicStarted = true
+		puzzle_threshold_reached.emit()

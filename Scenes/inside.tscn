@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr4olkkfwgtoj"]
+[gd_scene load_steps=7 format=3 uid="uid://dr4olkkfwgtoj"]
 
 [ext_resource type="PackedScene" uid="uid://npttmy72awll" path="res://Scenes/spawn_shack.tscn" id="1_hx0n2"]
 [ext_resource type="PackedScene" uid="uid://dyyjaqwhmsasp" path="res://Scenes/table.tscn" id="2_fbkke"]
@@ -6,27 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://cj3r1y0fy57j4" path="res://Scenes/key.tscn" id="4_361rb"]
 [ext_resource type="PackedScene" uid="uid://cs28ogp4p2sg4" path="res://Scenes/newspaper.tscn" id="5_48vkc"]
 [ext_resource type="PackedScene" uid="uid://dewyypk6nag6p" path="res://Scenes/radio_table.tscn" id="6_fbkke"]
-[ext_resource type="PackedScene" uid="uid://c7gv56cbkcrt5" path="res://Scenes/player.tscn" id="7_45t7l"]
 
 [node name="Inside" type="Node3D"]
 
 [node name="ConcShack" parent="." instance=ExtResource("1_hx0n2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000957489, 0.0025577545, -0.001252532)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.000957489, 0.0025577545, -0.001252532)
+script = null
 
 [node name="LPTable" parent="." instance=ExtResource("2_fbkke")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.87975603, -0.24766994, -1.591147)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.87975603, -0.24766994, -1.8493162)
 
 [node name="screwdriver" parent="." instance=ExtResource("3_45t7l")]
-transform = Transform3D(0.038796406, -0.058265243, 2.5468547e-09, 0, -3.059797e-09, -0.07, 0.058265243, 0.038796406, -1.6958448e-09, 1.3327534, 0.8755475, -1.0888318)
+transform = Transform3D(0.038796406, -0.058265243, 2.5468547e-09, 0, -3.059797e-09, -0.07, 0.058265243, 0.038796406, -1.6958448e-09, 1.3327534, 1.045473, -1.3470011)
 
 [node name="Key" parent="." instance=ExtResource("4_361rb")]
-transform = Transform3D(0.008183743, -0.049845293, -0.048461016, 0.029892024, -0.041531663, 0.047765944, -0.06276537, -0.02627861, 0.01642989, -1.6896806, 1.1260818, 0.9556805)
+transform = Transform3D(0.008183743, -0.049845293, -0.048461016, 0.029892024, -0.041531663, 0.047765944, -0.06276537, -0.02627861, 0.01642989, -1.8887671, 1.33168, 1.0704459)
 
 [node name="newspaper" parent="." instance=ExtResource("5_48vkc")]
-transform = Transform3D(0.055914044, 0.042114366, 1.8408775e-09, 0, -3.059797e-09, 0.07, 0.042114366, -0.055914044, -2.4440805e-09, 0.20106691, 0.8571074, -1.1370358)
+transform = Transform3D(0.055914044, 0.042114366, 1.8408775e-09, 0, -3.059797e-09, 0.07, 0.042114366, -0.055914044, -2.4440805e-09, 0.20106691, 1.0719203, -1.3952051)
 
 [node name="RadioTable" parent="." instance=ExtResource("6_fbkke")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2166457, 0.091260016, 0.11388111)
-
-[node name="Player" parent="." instance=ExtResource("7_45t7l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1751943, 0)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -2.5159283, 0.091260016, 0.11388111)

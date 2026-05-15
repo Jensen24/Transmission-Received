@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 
 	if ray.is_colliding():
 		var obj = ray.get_collider()
-		while obj and not obj.is_in_group("Pickups") and not obj.is_in_group("Slots") and not obj.is_in_group("Ports"):
+		while obj and not obj.is_in_group("Pickups") and not obj.is_in_group("Slots") and not obj.is_in_group("Ports") and not obj.is_in_group("Button"):
 			obj = obj.get_parent()
 		
 		if obj:
@@ -133,10 +133,16 @@ func try_inspect_or_place():
 		return
 	var obj = ray.get_collider()
 	obj = obj.get_parent()
+	if obj.is_in_group("Button"):
+		obj = obj.get_parent()
+	
 	if obj and obj.has_method("interact"):
 		if obj.is_in_group("Slots"):
 			if heldFuse != null:
 				obj.interact(self)
+			return
+		if obj.is_in_group("Button"):
+			obj.interact(self)
 			return
 		obj.interact(self)
 		return

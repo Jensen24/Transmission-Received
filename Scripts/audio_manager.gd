@@ -2,12 +2,14 @@ extends Node
 
 @onready var cue: AudioStreamPlayer3D = $SFXSystem
 @onready var ambi = $AmbianceSystem
-@onready var music = $MusicSystem
+@onready var puzzleComp = $PuzzleCompletion
+@onready var puzzleLoop = $PuzzleLoop
 @onready var player
 
 var footstepDelay := 0.6
 var footstepTimer := 0.0
 
+var wind = preload("res://Audio/wind.ogg")
 var snowFoots = [
 	preload("res://Audio/snow1.wav"),
 	preload("res://Audio/snow2.wav"),
@@ -24,6 +26,10 @@ var metalFoots = [
 	preload("res://Audio/metal2.wav"),
 	preload("res://Audio/metal3.wav")
 ]
+func _ready():
+	ambi.play()
+	PuzzleManager.puzzle_threshold_reached.connect(on_music_triggered)
+	puzzleComp.finished.connect(on_completion_finished)
 func _process(delta: float) -> void:
 	if footstepTimer > 0:
 		footstepTimer -= delta
@@ -38,3 +44,10 @@ func play_footstep(sound: AudioStream):
 	cue.pitch_scale = randf_range(0.8, 1)
 	cue.global_position = player.global_position
 	cue.play()
+
+func on_music_triggered():
+	ambi.volume_db = -13
+	puzzleComp.play()
+
+func on_completion_finished():
+	puzzleLoop.play()

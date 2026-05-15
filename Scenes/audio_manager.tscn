@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjstda724qblr"]
+[gd_scene load_steps=5 format=3 uid="uid://bjstda724qblr"]
 
 [ext_resource type="Script" uid="uid://bpb8pi34ay4yy" path="res://Scripts/audio_manager.gd" id="1_sm2tf"]
+[ext_resource type="AudioStream" uid="uid://d3akrud2uan3c" path="res://Audio/wind.ogg" id="2_4tj6f"]
+[ext_resource type="AudioStream" uid="uid://dr6w51naiiwoe" path="res://Audio/puzzle_complete.wav" id="3_qixve"]
+[ext_resource type="AudioStream" uid="uid://c3ldqyf375u28" path="res://Audio/puzzle_complete_loop.ogg" id="4_0hehx"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_sm2tf")
@@ -8,5 +11,13 @@ script = ExtResource("1_sm2tf")
 [node name="SFXSystem" type="AudioStreamPlayer3D" parent="."]
 
 [node name="AmbianceSystem" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4tj6f")
+volume_db = -7.0
 
-[node name="MusicSystem" type="AudioStreamPlayer" parent="."]
+[node name="PuzzleCompletion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qixve")
+volume_db = -23.0
+
+[node name="PuzzleLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0hehx")
+volume_db = -23.0

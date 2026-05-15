@@ -27,6 +27,7 @@ func on_fuse_checked(fuse):
 	if fuse.signature == allSigs[currentSig]:
 		display.text = "Correct"
 		currentSig += 1
+		PuzzleManager.increment_count()
 		await get_tree().create_timer(2.0).timeout
 		start_round()
 	else:

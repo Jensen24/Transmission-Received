@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bp7twrw64ts5w"]
+[gd_scene load_steps=21 format=3 uid="uid://bp7twrw64ts5w"]
 
 [ext_resource type="Script" uid="uid://03bh615soeow" path="res://Scripts/main.gd" id="1_8gbba"]
 [ext_resource type="PackedScene" uid="uid://c7gv56cbkcrt5" path="res://Scenes/player.tscn" id="2_8gbba"]
@@ -10,8 +10,23 @@
 [ext_resource type="PackedScene" uid="uid://bju147uqddybc" path="res://Scenes/trash_bin.tscn" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://bjstda724qblr" path="res://Scenes/audio_manager.tscn" id="11_6iyac"]
 [ext_resource type="PackedScene" uid="uid://7n4ad51qkfdt" path="res://Scenes/fuse_port.tscn" id="11_d1ilt"]
+[ext_resource type="Script" uid="uid://bus3bxxxagexs" path="res://Scripts/finale_manager.gd" id="11_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://d17svgkxw7ebg" path="res://Scenes/fuse_box2.tscn" id="12_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://dh2pjyefjb3ko" path="res://Scenes/button.tscn" id="12_jkdf5"]
+[ext_resource type="AudioStream" uid="uid://m2qnsqp4jeeh" path="res://Audio/Winter Lantern Song.wav" id="13_h1bgf"]
 [ext_resource type="PackedScene" uid="uid://bd0rxyqhff3pn" path="res://Scenes/fuse_port2.tscn" id="13_jkdf5"]
+[ext_resource type="Script" uid="uid://dlm1uwhwm650v" path="res://Scripts/fog_volume.gd" id="14_k12tt"]
+[ext_resource type="PackedScene" uid="uid://dr4olkkfwgtoj" path="res://Scenes/inside.tscn" id="16_h1bgf"]
+[ext_resource type="Script" uid="uid://b3r72075pr2ql" path="res://Scripts/spawn_shack.gd" id="17_b3802"]
+
+[sub_resource type="Environment" id="Environment_fdnlq"]
+fog_enabled = true
+fog_light_energy = 0.6
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.001
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3802"]
+size = Vector3(1.7828369, 1.4364014, 0.21089172)
 
 [node name="main" type="Node"]
 script = ExtResource("1_8gbba")
@@ -34,18 +49,71 @@ transform = Transform3D(-0.116999984, 0, -1.0228463e-08, 0, 0.11700001, 0, 1.022
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -6.75772, 0.7410209, 11)
 
 [node name="Player" parent="World" instance=ExtResource("2_8gbba")]
-transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 0, 1.04987, 2.5644667)
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -0.129161, -15.120146, 0.2811619)
 
 [node name="Snowfall" parent="World/Player" instance=ExtResource("8_jkdf5")]
 transform = Transform3D(0.71428573, 0, 0, 0, 0.71428573, 0, 0, 0, 0.71428573, 0, 3.1858952, 0.064187884)
+visible = false
 
 [node name="assets" parent="World" instance=ExtResource("7_ynf5e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.060980797, 0, -0.019931793)
 
-[node name="LPAngel" parent="World" instance=ExtResource("10_d1ilt")]
-transform = Transform3D(-4, -9.119748e-08, 5.4941756e-07, 1.4524775e-07, 3.638628, 1.6614407, -5.376614e-07, 1.6614407, -3.638628, 0, 76.352776, -60.371655)
-
 [node name="AudioManager" parent="World" instance=ExtResource("11_6iyac")]
+
+[node name="FinaleManager" type="Node" parent="World" groups=["Finale"]]
+script = ExtResource("11_wsu2k")
+
+[node name="LPAngel" parent="World/FinaleManager" instance=ExtResource("10_d1ilt")]
+transform = Transform3D(-1, -2.2799373e-08, 1.3735439e-07, 3.631194e-08, 0.909657, 0.4153602, -1.3441534e-07, 0.4153602, -0.909657, -0.43593264, 91.818, -67.78003)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="World/FinaleManager"]
+transform = Transform3D(-0.99975556, 9.765462e-10, -0.022111474, -0.00903865, 0.91263455, 0.40867656, 0.020179695, 0.40877655, -0.91241133, -1.5719888, 97.29399, -81.878876)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.0
+spot_range = 104.927
+spot_attenuation = -1.2
+spot_angle = 3.86
+
+[node name="Angelic" type="AudioStreamPlayer" parent="World/FinaleManager"]
+stream = ExtResource("13_h1bgf")
+volume_db = -20.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="World/FinaleManager"]
+layer = 5
+
+[node name="ColorRect" type="ColorRect" parent="World/FinaleManager/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Button" parent="World" instance=ExtResource("12_jkdf5")]
+transform = Transform3D(9.5534265e-17, 2.1855695e-09, -0.05, 0.05, -2.1855695e-09, -6.617445e-24, -2.1855695e-09, -0.05, -2.1855695e-09, 0.459612, 56.38565, 10.119969)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_fdnlq")
+
+[node name="FogVolume" type="FogVolume" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1330972, 12.842408)
+script = ExtResource("14_k12tt")
+
+[node name="Inside" parent="World" node_paths=PackedStringArray("teleportPoint") instance=ExtResource("16_h1bgf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.367085, 0)
+script = ExtResource("17_b3802")
+teleportPoint = NodePath("../LevelSpawn")
+
+[node name="Area3D" type="Area3D" parent="World/Inside"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9973326, 0.2626767, 2.1633875)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Inside/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20456553, 0.21820068, 0.1621933)
+shape = SubResource("BoxShape3D_b3802")
+
+[node name="LevelSpawn" type="Marker3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.450896, 0.098003685, 6.267572)
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -57,3 +125,5 @@ grow_vertical = 2
 
 [node name="PauseMenu" parent="HUD" instance=ExtResource("4_jjvhh")]
 layout_mode = 1
+
+[connection signal="body_entered" from="World/Inside/Area3D" to="World/Inside" method="_on_area_3d_body_entered"]

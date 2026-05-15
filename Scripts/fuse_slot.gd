@@ -4,7 +4,6 @@ extends Node3D
 @export var portSlot := false
 @export var correctSig := ""
 
-
 var currentFuse = null
 
 func _ready():
@@ -32,7 +31,7 @@ func interact(Player):
 		if portSlot:
 			check_fuse()
 			get_parent().get_parent().on_fuse_checked(currentFuse)
-			
+
 func check_fuse():
 	if currentFuse == null:
 		return

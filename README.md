@@ -11,8 +11,13 @@
 ### https://www.youtube.com/watch?v=n5RAGhxHo28&t=366s Used to create snowstorm
 # Programming Sources:
 ### https://www.youtube.com/watch?v=D3OWzdppBrU Assisted greatly in core functionality needed in Inspection System
-# Lighting Sources:
 # Audio Sources:
+### https://freesound.org/people/Fission9/sounds/521590/ stone steps
+### https://freesound.org/people/Nox_Sound/sounds/613849/ snow steps
+### https://freesound.org/search/?q=footsteps+metal&f=pack_grouping%3A"21595_Footsteps" metal steps
+### https://freesound.org/people/nlux/sounds/622794/ post-puzzle completion
+### https://freesound.org/people/giddster/sounds/719561/ wind ambiance
+### https://www.youtube.com/watch?v=2nt3IgSHUjM ending sequence
 # General Sources:
 ### https://docs.godotengine.org/en/stable/ General Godot manual used throughout entire process
 ### Many individual searches for Blender related assitance were utilized

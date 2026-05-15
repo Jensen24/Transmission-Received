@@ -530,7 +530,7 @@ transform = Transform3D(-10, 0, -3.8941434e-06, 0, 20, 0, 3.8941434e-06, 0, -10,
 mesh = SubResource("ArrayMesh_dne75")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="PlatformTwo"]
+[node name="StaticBody3D" type="StaticBody3D" parent="PlatformTwo" groups=["Metal"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformTwo/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0068359524, 0, -0.0032691956)
